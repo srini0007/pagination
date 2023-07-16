@@ -82,7 +82,7 @@ function Page() {
                 cnt+=pg_sz;
             }
             for(let i=extra,c=0;c<pg_sz && i<=9;i++,c++){
-                elements.push(<Buttons val={i}></Buttons>);
+                elements.push(<Buttons key={i} val={i}></Buttons>);
             }
             return elements;
             })()}        
@@ -91,13 +91,13 @@ function Page() {
             </button>
         </div>
         <div className='bottom'>
-            <button className='bullet current clickable' id='b1' onClick={chooseBullet}/>
+            <button key={1} className='bullet current clickable' id='b1' onClick={chooseBullet}/>
             {(()=>{
                 const element=[];
                 const n = Math.ceil(9/pg_sz);
                 console.log(n);
                 for(let i=2;i<=n;i++){
-                    element.push(<button className='bullet clickable' id={`b${i}`} onClick={chooseBullet} />)
+                    element.push(<button key={i} className='bullet clickable' id={`b${i}`} onClick={chooseBullet} />)
                 }
                 return element;
             })()}
